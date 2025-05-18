@@ -1,0 +1,32 @@
+<div class="container mt-2">
+
+    <div class="card col-md-6 offset-3 mt-2" >
+
+      <div class="card-header" > New Customers</div>
+      <div class="card-body">
+
+          <form [formGroup]="newCustomerFormGroup" (ngSubmit) ="handleNewCustomer()">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input class="form-control" type="text" formControlName="name" placeholder="name customer">
+              <span class="text-danger" *ngIf="newCustomerFormGroup.controls['name'].touched && newCustomerFormGroup.controls['name'].errors?.['required']">
+  Name is Required
+</span>
+
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input class="form-control" type="text" formControlName="email" placeholder="email customer">
+              <span class="text-danger" *ngIf="newCustomerFormGroup.controls['email'].touched && newCustomerFormGroup.controls['email'].errors?.['required']">
+  email is not valid
+</span>
+
+            </div>
+              <button [disabled]="!newCustomerFormGroup.valid"
+                      class="btn btn-info"><i class="bi bi-save"></i></button>
+
+          </form>
+
+      </div>
+    </div>
+</div>
