@@ -38,6 +38,8 @@ this.customers=this.customerService.searchCustomers(kw).pipe(
 
   }
 handleDeleteCustomers(c:Customer){
+  let con=confirm("are you sure ?");
+  if(!con) return;
 this.customerService.deleteCustomer(c.id).subscribe({
   next:(resp)=>{
     this.customers=this.customers.pipe(map(data=>{let index=data.indexOf(c);
