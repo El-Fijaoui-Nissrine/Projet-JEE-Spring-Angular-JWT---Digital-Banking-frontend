@@ -6,10 +6,10 @@ import { Router} from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-isAuthenticated:boolean=false;
-roles:any;
-username:any;
-accessToken!:any;
+  public isAuthenticated: boolean = false;
+  public roles: any;
+  public username: any;
+  public accessToken: any;
   constructor(private http: HttpClient,private router: Router) { }
   public login(username:string,password:string){
     let options={

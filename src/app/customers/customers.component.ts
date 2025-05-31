@@ -5,8 +5,9 @@ import { catchError } from 'rxjs/operators';
 import {  Observable,throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {   ReactiveFormsModule,FormGroup ,FormBuilder } from '@angular/forms';
-
+import { AuthService } from '../services/auth.service';
 import {Customer } from '../model/customer.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-customers',
   standalone: true,
@@ -18,7 +19,7 @@ export class CustomersComponent implements OnInit {
   customers! : Observable<Array<Customer>>;
   errorMessage!: string;
   searchFormGroup :FormGroup | undefined;
-constructor(private customerService: CustomerService,private fb:FormBuilder){}
+constructor(private customerService: CustomerService,private fb:FormBuilder,private authService: AuthService,  private router: Router){}
 ngOnInit():void{
   this.searchFormGroup=this.fb.group({
     keyword :this.fb.control("")});
@@ -49,4 +50,11 @@ this.customerService.deleteCustomer(c.id).subscribe({
   );
   },
 error:err=>{console.log(err);}});}
+
+isAdmin(): boolean {
+  return this.authService.roles.includes('ADMIN');
+}
+ handleEditCustomer(customer: Customer) {
+    this.router.navigate(['/admin/edit-customer', customer.id]);
+  }
 }

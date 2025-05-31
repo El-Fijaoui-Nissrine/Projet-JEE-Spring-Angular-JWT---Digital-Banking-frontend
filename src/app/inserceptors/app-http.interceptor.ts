@@ -3,7 +3,7 @@ import { inject } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 export const appHttpInterceptor: HttpInterceptorFn = (req, next) => {
     const authService = inject(AuthService);
-    const token = authService.accessToken; // ou localStorage.getItem('token');
+    const token = authService.accessToken;
 console.log("Token in interceptor:", token);
 
     if (token) {
