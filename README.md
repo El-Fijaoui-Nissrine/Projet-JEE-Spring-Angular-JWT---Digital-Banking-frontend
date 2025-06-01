@@ -93,10 +93,14 @@ window.localStorage.setItem("jwt-yoken",this.accessToken);
 ###  Customer Management (Admin View)
 ![admin](./admin2.png) 
 
+### Add  Customer
+![admin](./AddC.png)
+### Edit Customer
+![admin](./EditC.png)
 
 ###  Customer List (User View)
 
-![user](./user.png) 
+![user](./user2.png) 
 
 
 
