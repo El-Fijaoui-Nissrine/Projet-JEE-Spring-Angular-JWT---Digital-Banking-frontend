@@ -88,7 +88,7 @@ window.localStorage.setItem("jwt-yoken",this.accessToken);
 ##  Application Screenshots
 
 ###  Login Page
-![login](./lgin.png) 
+![login](./login.png) 
 
 ###  Customer Management (Admin View)
 ![admin](./admin.png) 
